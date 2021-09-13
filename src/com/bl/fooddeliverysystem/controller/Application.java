@@ -13,9 +13,8 @@ import com.bl.fooddeliverysystem.view.UserInterface;
 //controller layer 
 public class Application {
 
-	FoodStore foodStore = new FoodStore();
-
 	public static void main(String[] args) {
+
 		/*
 		 * AppleJuice appleJuice = new AppleJuice(); appleJuice.setPrice(100);
 		 * 
@@ -37,47 +36,50 @@ public class Application {
 		 * System.out.println("After removing items);
 		 * userinterface.display(foodstore.getFoodList());
 		 */
-
 		UserInterface userInterface = new UserInterface();
 		userInterface.showUserMenu();
 	}
 
 	public void handleUserSelection(int n) {
+
+		FoodStore foodStore = FoodStore.getInstance();
+		UserInterface userInterface = new UserInterface();
+
 		switch (n) {
 		case 1:
-			AppleJuice appleJuice = new AppleJuice();
-			appleJuice.setPrice(150);
 
-			HakkaNoodle hakkaNoodle = new HakkaNoodle();
-			hakkaNoodle.setPrice(100);
-
-			ItallianMomos itallianMomos = new ItallianMomos();
-			itallianMomos.setPrice(200);
-
-			MasalaDosa masalaDosa = new MasalaDosa();
-			masalaDosa.setPrice(100);
-
-			foodStore.add(appleJuice);
-			foodStore.add(hakkaNoodle);
-			foodStore.add(itallianMomos);
-			foodStore.add(masalaDosa);
-
-			UserInterface userInterface = new UserInterface();
-			userInterface.display(foodStore.getFoodList());
-			break;
-
+			FoodItem foodItem1 = userInterface.addFoodItems();
+			foodStore.add(foodItem1);
+			/*
+			 * AppleJuice appleJuice = new AppleJuice(); appleJuice.setPrice(150);
+			 * 
+			 * HakkaNoodle hakkaNoodle = new HakkaNoodle(); hakkaNoodle.setPrice(100);
+			 * 
+			 * ItallianMomos itallianMomos = new ItallianMomos();
+			 * itallianMomos.setPrice(200);
+			 * 
+			 * MasalaDosa masalaDosa = new MasalaDosa(); masalaDosa.setPrice(100);
+			 * 
+			 * /* foodStore.add(appleJuice); foodStore.add(hakkaNoodle);
+			 * foodStore.add(itallianMomos); foodStore.add(masalaDosa);
+			 * 
+			 * 
+			 * UserInterface userInterface = new UserInterface();
+			 * userInterface.display(foodStore.getFoodList()); break;
+			 */
 		case 2:
 			System.out.println("Enter name of food item to be removed");
 			Scanner scan = new Scanner(System.in);
 			String foodName = scan.nextLine();
-			FoodItem foodItem = foodStore.getFood(foodName);
-			foodStore.remove(foodItem);
+			FoodItem foodItem2 = foodStore.getFood(foodName);
+			foodStore.remove(foodItem2);
 			break;
-			
+
 		case 3:
-			break;
-			
+			userInterface.display(foodStore.getFoodList());
+
 		case 4:
+			System.out.println("EXIT");
 			break;
 		}
 	}

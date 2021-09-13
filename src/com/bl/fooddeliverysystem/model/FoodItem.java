@@ -2,23 +2,23 @@ package com.bl.fooddeliverysystem.model;
 
 public class FoodItem {
 
-	enum Taste {
+	public enum Taste {
 		SWEET, SALTY, SPICY, SOUR
 	};
 
-	enum category {
+	public enum category {
 		JUICES, STARTER, MAINCOURSE, DESERTS
 	};
 
-	enum vegtype {
+	public enum vegtype {
 		VEG, NON_VEG
 	};
 
-	protected Taste taste;
-	protected category category;
-	protected vegtype vegtype;
+	private Taste taste;
+	public category category;
+	private vegtype vegtype;
 	private int price;
-	protected String itemName;
+	public String itemName;
 
 	public int getPrice() {
 		return price;
@@ -28,10 +28,42 @@ public class FoodItem {
 		this.price = price;
 	}
 
+	public category getCategory() {
+		return category;
+	}
+
+	public void setCategory(category category) {
+		this.category = category;
+	}
+
+	public vegtype getVegtype() {
+		return vegtype;
+	}
+
+	public void setVegtype(vegtype vegtype) {
+		this.vegtype = vegtype;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
 	@Override
 	public String toString() {
-		return "FoodItem [taste=" + taste + ", category=" + category + ", vegtype=" + vegtype + ", price=" + price
+		return "FoodItem [taste=" + getTaste() + ", category=" + category + ", vegtype=" + vegtype + ", price=" + price
 				+ ", itemName=" + itemName + "]";
+	}
+
+	public Taste getTaste() {
+		return taste;
+	}
+
+	public void setTaste(Taste string) {
+		this.taste = string;
 	}
 
 }

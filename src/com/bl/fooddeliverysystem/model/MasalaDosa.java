@@ -3,8 +3,8 @@ package com.bl.fooddeliverysystem.model;
 public class MasalaDosa extends FoodItem{
 
 	public MasalaDosa() {
-		taste = Taste.SOUR;
-		vegtype = vegtype.VEG;
+		setTaste(Taste.SOUR);
+		setVegtype(vegtype.VEG);
 		category = category.STARTER;
 		itemName = "Masala Dosa";
 	}
